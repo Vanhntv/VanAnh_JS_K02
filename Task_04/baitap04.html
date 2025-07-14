@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = Number(prompt('Nhập a:  '))
+        let b = Number(prompt('Nhập b: '))
+        let c = Number(prompt('Nhập c: '))
+        function isTriangle(a, b, c) {
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Yeu cau nhap so");
+                return;
+            }
+           if(a + b > c && b + c > a && c + a > b) {
+            return true;
+           } else {
+            return false;
+           }
+        }
+
+
+        console.log(isTriangle(3, 4, 5)); 
+        console.log(isTriangle(3, 4, 7)); 
+        alert(isTriangle(a, b, c))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = Number(prompt('Nhập a:  '))
+        let b = Number(prompt('Nhập b: '))
+        let c = Number(prompt('Nhập c: '))
+
+        function sortNumber(a, b, c) {
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Yeu cau nhap so");
+                return;
+            }
+            if (a > b) {
+                a = a + b;
+                b = a - b;
+
+                a = a - b;
+            } if (a > c) {
+                a = a + c;
+                c = a - c;
+
+                a = a - c;
+            } if (b > c) {
+                b = b + c;
+                c = b - c;
+
+                b = b - c;
+            }
+
+            return [a, b, c];
+        }
+
+        let message = sortNumber(a, b, c);
+        alert(message)
+    </script>
+</body>
+
+</html>
