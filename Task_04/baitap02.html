@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = Number(prompt('Nhập a:  '))
+            let b = Number(prompt('Nhập b: '))
+           
+        function swapNumber(a, b) {
+            if(isNaN(a) || isNaN(b)) {
+                alert("Yeu cau nhap so");
+            return;
+            }
+            // Xử lý và in ra kết quả
+            a = a + b;
+            b = a - b;
+
+            a = a - b;
+            return [a,b];
+        }
+
+        let message = swapNumber(a , b);
+        alert(message)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calcBMI() {
+            let weight = Number(prompt('Nhập cân nặng = '))
+            let height = Number(prompt('Nhập chiều cao = '))
+            if(isNaN(weight) || isNaN(height)) {
+                alert("Yeu cau nhap so");
+                return;
+            }
+            let BMI = (weight) / ((height) * (height));
+            BMI = BMI.toFixed(2);
+
+            if (BMI < 18.5)  alert("Thiếu cân. BMI cua ban la: " + BMI);
+            else if (BMI >= 18.5 && BMI <= 24.99)
+                 alert("Bình thường. BMI cua ban la: " + BMI);
+            else if (BMI >= 25 && BMI <= 29.99)
+                 alert("Thừa Cân. BMI cua ban la: " + BMI);
+            else  alert("Béo phì. BMI cua ban la: " + BMI);
+        }
+
+        calcBMI();
+        
+    </script>
+</body>
+
+</html>
