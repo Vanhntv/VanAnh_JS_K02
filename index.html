@@ -1,16 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Universe Menu</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: black;
+            background-image: url("https://i.pinimg.com/originals/ca/4d/23/ca4d2391455ade48053c0b6861842574.gif");
+            background-size: cover;
+            background-position: center;
+            animation: bgMove 1000s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1000px -800px;
+            }
+        }
+
+        div {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: "Dancing Script", cursive;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffb6f9;
+            margin-bottom: 150px;
+            text-shadow: 0 0 20px rgba(255, 182, 249, 0.8);
+        }
+
+        ul {
+            background: rgba(255, 182, 249, 0.08);
+            padding: 70px 300px;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 182, 249, 0.2);
+            box-shadow: 0 0 50px rgba(255, 182, 249, 0.45),
+                inset 0 0 25px rgba(255, 182, 249, 0.2);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        ul:hover {
+            box-shadow: 0 0 70px rgba(255, 182, 249, 0.6),
+                inset 0 0 30px rgba(255, 182, 249, 0.25);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li a {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            color: #f9c2ff;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            transition: 0.3s ease;
+            text-shadow: 0 0 10px rgba(249, 194, 255, 0.4);
+        }
+
+        li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: #ffc9f9;
+            transition: width 0.3s ease;
+        }
+
+        li a:hover {
+            color: white;
+        }
+
+        li a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            ul {
+                padding: 40px 30px;
+            }
+
+            li a {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <ul>
-        <li><a href="./Task_04/baitap01.html">Bai Tap 1</a></li>
-        <li><a href="./Task_04/baitap02.html">Bai Tap 2</a></li>
-        <li><a href="./Task_04/baitap03.html">Bai Tap 3</a></li>
-        <li><a href="./Task_04/baitap04.html">Bai Tap 4</a></li>
-    </ul>
+    <div>
+        <h1>Du Hành Vũ Trụ Cùng Vân Anh - Part 2</h1>
+        <ul>
+            <li><a href="./Task_04/baitap01.html">Bài Tập 1</a></li>
+            <li><a href="./Task_04/baitap02.html">Bài Tập 2</a></li>
+            <li><a href="./Task_04/baitap03.html">Bài Tập 3</a></li>
+            <li><a href="./Task_04/baitap04.html">Bài Tập 4</a></li>
+        </ul>
+    </div>
 </body>
+
 </html>
