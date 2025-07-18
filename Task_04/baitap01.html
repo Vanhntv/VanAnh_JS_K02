@@ -16,6 +16,10 @@
                 alert("Yeu cau nhap so");
                 return;
             }
+            if(weight <= 0 || height <= 0) {
+                alert("Yeu cau nhap dung");
+                return;
+            }
             let BMI = (weight) / ((height) * (height));
             BMI = BMI.toFixed(2);
 

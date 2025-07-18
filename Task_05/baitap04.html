@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let input = Number(prompt("Nhập số hàng tán cây: "));
+        let abc = prompt("Nhập kí tự");
+        function printChristmasTree(number, char) {
+            if(isNaN(number)) {
+                console.log("Thứ bạn nhập không phải là số");
+                return;
+            }
+            if (number >= 100) {
+                console.log("Không nhập quá 100");
+                return;
+            }
+            if (char.length > 1) {
+                console.log("Không nhập quá 1 kí tự");
+                return;
+            }
+            let output = "";
+            for (let i = 1; i <= number; i++) {
+                output = "";
+                for (let j = 1; j <= number - i; j++) {
+                    output += " ";
+                }
+                for (let p = 1; p <= 2 * i - 1; p++) {
+                    output += `${char}`;
+                }
+                console.log(output);
+            }
+            let trunk = "";
+            for(let i = 0; i < number - 1; i++ ) {
+                trunk += " ";
+            }
+            trunk += char;
+            console.log(trunk);
+        }
+
+        printChristmasTree(input, abc);
+    </script>
+</body>
+
+</html>

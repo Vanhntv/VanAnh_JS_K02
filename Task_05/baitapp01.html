@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function printSquareNumber(n) {
+            for (let i = 1; i * i <= n; i++) {
+                let number = i * i;
+                if (number >= 2) {
+                    console.log(number);
+                }
+            }
+        }
+        let input = prompt("Nhập: ");
+        printSquareNumber(input)
+
+
+    </script>
+</body>
+
+</html>

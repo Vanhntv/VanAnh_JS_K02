@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Input:
+        function printPrimeNumber(n) {
+            // Xử lý và in ra kết quả
+            if(typeof n !== "number" || Number.isNaN(n)) {
+                console.log("Invalid");
+            }
+            for(let i = 2; i <= n; i++) {
+                // Check i có phải số nguyên tố không
+                // Có -> Tìm cách in ra i
+                checkPrime(i) && console.log(i);
+            }
+        }
+        function checkPrime(x) {
+            // Nếu x là số nguyên tố -> true
+            // Ngược lại là false
+            // Kiểm tra xem từ 2 đến x, thì có số nào mà x chia hết không?
+
+            for(let i = 2; i <= Math.sqrt(i); i++) {
+                let du = x % i;
+                if(du === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Output:
+        console.log(printPrimeNumber(10003)); // 2 3 5 7
+        
+        
+
+        
+        //   Bước 1: Kiểm tra số đó trong khoảng từ 2 đến n
+        //   Bước 2: Kiểm tra số đó có phải là số nguyên tố
+        
+    </script>
+</body>
+</html>
