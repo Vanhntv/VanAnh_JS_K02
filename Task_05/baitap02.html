@@ -8,6 +8,7 @@
 <body>
     <script>
         // Input:
+        let n = prompt("Nhập: ")
         function printPrimeNumber(n) {
             // Xử lý và in ra kết quả
             if(typeof n !== "number" || Number.isNaN(n)) {
@@ -24,7 +25,7 @@
             // Ngược lại là false
             // Kiểm tra xem từ 2 đến x, thì có số nào mà x chia hết không?
 
-            for(let i = 2; i <= Math.sqrt(i); i++) {
+            for(let i = 2; i <= Math.sqrt(x); i++) {
                 let du = x % i;
                 if(du === 0) {
                     return false;
@@ -34,7 +35,8 @@
         }
 
         // Output:
-        console.log(printPrimeNumber(10003)); // 2 3 5 7
+        
+        console.log(printPrimeNumber(n)); // 2 3 5 7
         
         
 

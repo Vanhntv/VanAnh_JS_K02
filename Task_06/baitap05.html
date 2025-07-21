@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input:
+        function insertNumber(arr, num) {
+            let cleanUpArr = [];
+            // Xử lý và in ra kết quả
+            for (let i = 0; i < arr.length; i++) {
+                if (!isNaN(arr[i]) && typeof arr[i] === "number") {
+                    cleanUpArr.push(arr[i]);
+                }
+            }
+            if (typeof num === "number" && !Number.isNaN(num)) {
+                cleanUpArr.push(num);
+            }
+            for (let i = 0; i < cleanUpArr.length; i++) {
+                for (let j = 0; j < cleanUpArr.length - 1 - i; j++) {
+                    if (cleanUpArr[j] > cleanUpArr[j + 1]) {
+                        let temp = cleanUpArr[j];
+                        cleanUpArr[j] = cleanUpArr[j + 1];
+                        cleanUpArr[j + 1] = temp;
+                    }
+                }
+            }
+            console.log(cleanUpArr);
+        }
+
+
+        // Output:
+        insertNumber([1, 3, 5, 7, 9], 6); // Output: [1, 3, 5, 6, 7, 9]
+        insertNumber([3, "hello", 1, NaN, 4, null], 2); // Output: [1, 2, 3, 4]
+        insertNumber([], 5); // Output: [5]
+        insertNumber([-1, 10, -5, "abc"], -3); // Output: [-5, -3, -1, 10]
+        insertNumber([5, 2, 8], NaN); // Output: [2, 5, 8]
+    </script>
+</body>
+
+</html>
