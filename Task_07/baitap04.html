@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function filterDuplicate(arr) {
+            const arrUnique = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (!arrUnique.includes(arr[i])) {
+                    arrUnique.push(arr[i]);
+                }
+            }
+            return arrUnique;
+        }
+
+        function filterValid(arr) {
+            return arr.filter((item) => item !== undefined && item !== null);
+        }
+
+        // Lọc phần tử xuất hiện đồng thời ở cả 2 mảng
+        function co0ccurrence(arr1, arr2) {
+            const cleanupArrDuplicate1 = filterDuplicate(arr1);
+            const validArray = filterValid(cleanupArrDuplicate1);
+            const cleanupArrDuplicate2 = filterDuplicate(arr2);
+            const validArray2 = filterValid(cleanupArrDuplicate2);
+
+            return validArray.filter((item) => validArray2.includes(item));
+        }
+
+        function findCommonElement(arr1, arr2) {
+            const check = co0ccurrence(arr1, arr2);
+            if (check.length === 0) {
+                console.log("false");
+            } else {
+                for (let i = 0; i < check.length; i++) {
+                    console.log(check[i]);
+                }
+            }
+        }
+
+        // Gọi hàm test
+        console.log(findCommonElement([1, 2, 3], [2, 3, 4])) // 2 3);
+        console.log(findCommonElement([1, 2, 3], [4, 5, 6])); // false
+        console.log(findCommonElement([1, 2, 2, 3, 4], [2, 3, 4, 5]));; // 2 3 4
+    </script>
+</body>
+
+</html>

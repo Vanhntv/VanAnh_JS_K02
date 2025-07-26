@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const students = [
+            { name: "An", scores: [8, 7.5, 9] },
+            { name: "Bình", scores: [6, 5.5, 7] },
+            { name: "Chi", scores: [9, 9.5, 10] },
+        ];
+
+        function average(students) {
+            const arr = students.map(student => {
+                let sum = 0;
+                let scores = student.scores;
+
+                let n = scores.length;
+                for (let i = 0; i < n; i++) {
+                    sum = sum + scores[i]; 
+                }
+
+                let average = sum / n;
+                average = Math.round(average * 10) / 10;
+
+                return {
+                    name: student.name,
+                    average: average
+                };
+            });
+
+            return arr;
+        }
+
+        const output = average(students);
+        console.log(output);
+
+        // [
+        //     { name: "An", average: 8.2 },
+        //     { name: "Bình", average: 6.2 },
+        //     { name: "Chi", average: 9.5 },
+        // ]
+    </script>
+</body>
+
+</html>

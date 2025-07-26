@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input:
+        function findSecondLargestNumber(arr) {
+            // Xử lý và in ra kết quả
+            if (arr.length < 2) 
+            return -1;
+            let Max = arr[0];
+            let n = arr.length;
+            
+            for (let i = 1; i < n; i++) {
+                if (arr[i] > Max) {
+                    Max = arr[i];
+                }
+            }
+            
+            let Min = [];
+            for(let a = 0; a < n; a++) {
+                if(arr[a] < Max) {
+                    Min.push(arr[a]);
+                }
+                
+            }
+            let j = Min.length;
+            if(j === 0) return -1;
+            
+            let Max2 = Min[0];
+            
+            for(let b = 1; b < j; b++) {
+                if(Min[b] > Max2) {
+                    // Min[b] = Max2;
+                    Max2 = Min[b];
+                }
+            }
+            return Max2;
+            
+        }
+
+        // Output:
+        console.log(findSecondLargestNumber([1, 2, 3, 4, 5])) // 4);
+        console.log(findSecondLargestNumber([1, 1, 1])); // -1
+        console.log(findSecondLargestNumber([1])); // -1
+    </script>
+</body>
+
+</html>
