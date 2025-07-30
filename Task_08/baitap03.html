@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input:
+        const arrayWords = ["Hello world", "JS is fun", "Arrays and strings"];
+        function countTotalWords(arr) {
+            // Logic bài tập và trả về kết quả
+            const count = arr.reduce((acc, cur) => {
+                
+               const world = cur.split(" ")
+             
+               return acc + world.length;
+            }, 0);
+            return count;
+        }
+
+        // Output:
+        console.log(countTotalWords(["Hello world", "JS is fun", "Arrays and strings"])); // 8);
+    </script>
+</body>
+
+</html>
