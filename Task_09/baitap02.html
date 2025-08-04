@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input:
+        const fruits = [
+            "apple",
+            "banana",
+            "kiwi",
+            "kiwi",
+            "banana",
+            "orange",
+            "apple",
+            "kiwi",
+        ];
+
+        function removeDuplicate(arr) {
+            // Xử lý và in ra kết quả
+            const result = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                const item = arr[i];
+
+                
+                const isItemNaN = typeof item === "number" && Number.isNaN(item);
+                const hasNaN = result.some(el => typeof el === "number" && Number.isNaN(el));
+
+                if (isItemNaN && hasNaN) {
+                    continue; 
+                }
+
+               
+                if (!result.includes(item)) {
+                    result.push(item);
+                }
+            }
+
+            return result;
+        }
+
+        // Output:
+        const result = removeDuplicate(fruits);
+        console.log(result); // ["apple", "banana", "kiwi", "orange"]
+    </script>
+</body>
+
+</html>
