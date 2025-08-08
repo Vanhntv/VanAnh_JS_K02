@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input:
+        const arrayString = ["name:John", "age:30", "city:NY"];
+
+        function convertArrayToObject(array) {
+            // Logic bài toán và trả về kết quả
+            let obj = {}; 
+            for (let i = 0; i < array.length; i++) {
+                let arr1 = array[i].split(":"); 
+
+                let name = arr1[0]; 
+                let value = arr1[1]; 
+                obj[name] = value; 
+            }
+
+            return obj; 
+        }
+
+        // Output:
+        console.log(convertArrayToObject(arrayString)); // { name: 'John', age: '30', city: 'NY' }
+    </script>
+</body>
+
+</html>

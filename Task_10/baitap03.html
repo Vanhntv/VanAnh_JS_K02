@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sortUsersByName(users) {
+            return users.sort((a, b) => {
+
+                const arr1 = a.fullName.split(" ");
+                const arr2 = b.fullName.split(" ");
+
+                const ten1 = arr1[arr1.length - 1];
+                const ten2 = arr2[arr2.length - 1];
+
+                if (ten1 < ten2) return -1;
+                if (ten1 > ten2) return 1;
+                const ho1 = arr1.slice(0, -1).join(" ");
+                const ho2 = arr2.slice(0, -1).join(" ");
+                if (ho1 < ho2) return -1;
+
+                if (ho1 > ho2) return 1;
+
+                return;
+            });
+            // Xử lý và in ra kết quả
+
+        }
+
+        // Input:
+        const users = [
+            { fullName: "Nguyễn Minh Hoàng" },
+            { fullName: "Nguyễn Đức Hoàng" },
+            { fullName: "Lê Văn" },
+            { fullName: "Lê Văn Tình" },
+            { fullName: "Lê Nin" },
+        ];
+        
+        console.log(sortUsersByName(users));
+        // Output:
+        // [
+        //     { fullName: "Nguyễn Đức Hoàng" }, // Tên: Hoàng, Họ và tên đệm: Nguyễn Đức
+        //     { fullName: "Nguyễn Minh Hoàng" }, // Tên: Hoàng, Họ và tên đệm: Nguyễn Minh
+        //     { fullName: "Lê Nin" }, // Tên: Nin
+        //     { fullName: "Lê Văn Tình" }, // Tên: Tình
+        //     { fullName: "Lê Văn" }, // Tên: Văn
+        // ];
+        
+    </script>
+</body>
+
+</html>
