@@ -28,27 +28,28 @@
             const map = {};
             const arr1 = [];
 
-            for (const item of object) {
+            for (const item of array) {
                 const { parent, ...rest } = item;
                 map[item.id] = { ...rest, children: [] }
             }
 
-            for (const item of object) {
+            for (const item of array) {
                 const resul1 = map[item.id];
                 if (item.parent === 0) {
-                    row.push(resul1);
+                    arr1.push(resul1);
                 } else {
                     const parent = map[item.parent];
                     if (parent) {
-                        parent.Children.push(resul1);
+parent.children.push(resul1)
                     }
                 }
             }
             return arr1;
         }
 
-        console.log(convertNested(categories));
+        const categoriesNess = convertNested(categories);
 
+        console.log(categoriesNess);
     </script>
 </body>
 
