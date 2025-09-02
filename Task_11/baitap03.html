@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đếm Từ và Ký Tự Còn Lại</title>
+    <style>
+      .container {
+        width: 500px;
+        margin: 50px auto;
+        font-family: Arial, sans-serif;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        font-size: 1em;
+        resize: vertical;
+        box-sizing: border-box;
+      }
+      #wordCount,
+      #charCount {
+        margin-top: 10px;
+        font-size: 1.1em;
+        color: #333;
+      }
+      #charCount.warning {
+        color: #e74c3c; /* Màu đỏ khi còn ít ký tự */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <textarea
+        id="textInput"
+        maxlength="200"
+        placeholder="Nhập đoạn văn bản (tối đa 200 ký tự)..."
+      ></textarea>
+      <div id="wordCount">Số từ: 0</div>
+      <div id="charCount">Số ký tự còn lại: 200</div>
+    </div>
+  </body>
+  <script>
+    const textInput = document.getElementById("textInput");
+    const wordCount = document.getElementById("wordCount");
+    const charCount = document.getElementById("charCount");
+    const maxLength = textInput.maxLength;
+
+    function demTu(text) {
+      if (!text.trim()) return 0;
+      return text.trim().split(/\s+/).length;
+    }
+
+    function kyTuConlai(text) {
+      let cleanedText = text.trim().replace(/\s+/g, " ");
+      return maxLength - cleanedText.length;
+    }
+
+    function capNhatGiaoDien() {
+      const content = textInput.value;
+
+      wordCount.textContent = `Số từ: ${demTu(content)}`;
+
+      const remain = kyTuConlai(content);
+      charCount.textContent = `Số ký tự còn lại: ${remain}`;
+
+      charCount.classList.toggle("warning", remain <= 40);
+    }
+
+    textInput.addEventListener("input", capNhatGiaoDien);
+  </script>
+</html>
