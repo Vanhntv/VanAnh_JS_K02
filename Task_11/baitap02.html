@@ -1,0 +1,74 @@
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập DOM: Hiển thị dữ liệu ra bảng bằng chuỗi</title>
+    <style>
+      /* CSS cơ bản để bảng dễ nhìn */
+      table {
+        border-collapse: collapse;
+        margin: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="dataTable"></table>
+  </body>
+  <script>
+    const students = [
+      { id: 1, name: "Nguyễn Văn A", age: 20, city: "Hà Nội" },
+      { id: 2, name: "Trần Thị B", age: 19, city: "TP.HCM" },
+      { id: 3, name: "Lê Văn C", age: 21, city: "Đà Nẵng" },
+    ];
+    const table = document.getElementById("dataTable");
+
+    let content = `
+              <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Tuổi</th>
+                <th>Thành phố</th>
+              </tr>
+            `;
+
+    students.forEach((student) => {
+      content += `
+                <tr>
+                  <td>${student.id}</td>
+                  <td>${student.name}</td>
+                  <td>${student.age}</td>
+                  <td>${student.city}</td>
+                </tr>
+              `;
+    });
+
+    table.innerHTML = content;
+    const style = document.createElement("style");
+    style.textContent = `
+      table {
+        border-collapse: collapse;
+        width: 60%;
+        margin: 20px auto;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background: #008cba;
+        color: white;
+      }
+      tr:nth-child(even) { background: #f9f9f9; }
+      tr:hover { background: #e0f7fa; }
+    `;
+    document.head.appendChild(style);
+  </script>
+</html>

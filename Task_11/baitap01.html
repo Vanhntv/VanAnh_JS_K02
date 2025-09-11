@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Universe Menu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: white;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: black;
+        background-image: url("https://i.pinimg.com/originals/ca/4d/23/ca4d2391455ade48053c0b6861842574.gif");
+        background-size: cover;
+        background-position: center;
+        animation: bgMove 1000s linear infinite;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      @keyframes bgMove {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: -1000px -800px;
+        }
+      }
+
+      div {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #ffb6f9;
+        margin-bottom: 150px;
+        text-shadow: 0 0 20px rgba(255, 182, 249, 0.8);
+      }
+
+      ul {
+        background: rgba(255, 182, 249, 0.08);
+        padding: 70px 300px;
+        border-radius: 35px;
+        border: 1px solid rgba(255, 182, 249, 0.2);
+        box-shadow: 0 0 50px rgba(255, 182, 249, 0.45),
+          inset 0 0 25px rgba(255, 182, 249, 0.2);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      ul:hover {
+        box-shadow: 0 0 70px rgba(255, 182, 249, 0.6),
+          inset 0 0 30px rgba(255, 182, 249, 0.25);
+      }
+
+      li {
+        list-style: none;
+      }
+
+      li a {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        color: #f9c2ff;
+        text-decoration: none;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        position: relative;
+        transition: 0.3s ease;
+        text-shadow: 0 0 10px rgba(249, 194, 255, 0.4);
+      }
+
+      li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0%;
+        height: 2px;
+        background: #ffc9f9;
+        transition: width 0.3s ease;
+      }
+
+      li a:hover {
+        color: white;
+      }
+
+      li a:hover::after {
+        width: 100%;
+      }
+
+      body.dark {
+        background: #121212;
+        color: #e0e0e0;
+      }
+
+      body.dark ul {
+        background: rgba(255, 182, 249, 0.12);
+        border: 1px solid rgba(255, 182, 249, 0.3);
+      }
+
+      body.dark li a {
+        color: #bb86fc;
+        text-shadow: 0 0 10px rgba(187, 134, 252, 0.4);
+      }
+
+      body.dark li a:hover {
+        color: #ffffff;
+      }
+
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(255, 182, 249, 0.4);
+        color: #f9c2ff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .theme-toggle:hover {
+        background-color: rgba(255, 182, 249, 0.7);
+      }
+
+      @media (max-width: 600px) {
+        ul {
+          padding: 40px 30px;
+        }
+
+        li a {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="theme-toggle" onclick="toggleMode()">
+      Chuyển Đổi Giao Diện
+    </button>
+    <div>
+      <h1>Du Hành Task_11 Cùng Vân Anh</h1>
+    </div>
+  </body>
+  <script>
+    function toggleMode() {
+      const isDark = document.body.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+      }
+    });
+  </script>
+</html>
