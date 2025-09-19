@@ -22,9 +22,8 @@ async function fetchProducts() {
             `<div>
                 <h3>${item.name}</h3>
                 <h3>${item.price}</h3>
-                <button onclick="">Cập Nhật</button>
-                <button onclick="deleteProduct(${item.id})
-                ">Xóa</button>
+                <button onclick="updateProducts(${item.id})">Cập Nhật</button>
+                <button onclick="deleteProduct(${item.id})">Xóa</button>
             </div>`
         ).join("");
         renderProducts(content);
@@ -64,8 +63,8 @@ async function updateProducts(id) {
 }
 
 btnCancel.addEventListener("click", (e) => {
-    addEventListener.preventDefault();
-    cancelUpdate
+    e.preventDefault();
+    cancelUpdate();
 })
 async function deleteProduct(id) {
     if(!confirm('Bạn muốn xóa không?')) return; 
@@ -82,6 +81,8 @@ async function deleteProduct(id) {
     }
     }
 
+formProducts.addEventListener("submit", submitForm);
+
 async function submitForm(e) {
     e.preventDefault();
     const formdata = new FormData(formProducts);
@@ -91,8 +92,8 @@ async function submitForm(e) {
         alert("Tên sản phẩm không được để trống và phải trên 3 kí tự");
         return;
     }
-    if(Number.isNaN(formDataObj.price) || !formDataObj.price || !formDataObj.price > 1) {
-        alert("Giá tiền phải lớn hơn 1")
+    if(isNaN(Number(formDataObj.price)) || Number(formDataObj.price) <= 1) {
+        alert("Giá tiền phải lớn hơn 1");
         return;
     }
     try {
@@ -101,37 +102,30 @@ async function submitForm(e) {
                 method: "POST",
                 body: JSON.stringify(formDataObj),
                 headers: {
-               "Content-Type": "application/json"
+                    "Content-Type": "application/json"
                 }
             });
             if(!res.ok) {
-                alert("Thêm thất bại")
+                alert("Thêm thất bại");
             }
-        }
-        if(productsId) {
-            const res = await fetch(`$API_URL}/${productsId}`, {
+        } else {
+            const res = await fetch(`${API_URL}/${productsId}`, {
                 method: "PUT",
                 body: JSON.stringify(formDataObj),
                 headers: {
-               "Content-Type": "application/json",
-        },
-    });
-    if(!res.ok) {
-        alert("Thêm thất bại");
-    }
-    cancelUpdate();
-}
-formProducts.reset();
-        fetchProducts()
+                    "Content-Type": "application/json",
+                },
+            });
+            if(!res.ok) {
+                alert("Cập nhật thất bại");
+            }
+            cancelUpdate();
+        }
+        formProducts.reset();
+        fetchProducts();
     } catch (error) {
-        
+        console.log(error);
     }
 }
-
-formProducts.addEventListener("submit", (e)=>{
-    e.preventDefault()
-    addProducts()
-});
-console.log(formProducts);
 
 fetchProducts();
