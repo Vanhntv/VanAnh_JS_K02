@@ -1,0 +1,117 @@
+body {
+    background: linear-gradient(120deg, #fff0f6 0%, #ffb6d5 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+form#form-products {
+    background: #fff0f6;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(255, 182, 213, 0.18);
+    padding: 32px 24px 24px 24px;
+    max-width: 400px;
+    margin: 40px auto 24px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+form label {
+    color: #d72660;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #ffb6d5;
+    border-radius: 8px;
+    background: #fff5fa;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+
+form input:focus {
+    border-color: #ff69b4;
+    outline: none;
+}
+
+button#btn-add, button#btn-cancel {
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+button#btn-add {
+    background: linear-gradient(90deg, #ffb6d5 60%, #ff69b4 100%);
+    color: #a8325a;
+}
+
+button#btn-add:hover {
+    background: #ff69b4;
+    color: #fff;
+}
+
+button#btn-cancel {
+    background: #ffe0ef;
+    color: #d72660;
+    margin-left: 8px;
+}
+
+button#btn-cancel:hover {
+    background: #ffb6d5;
+    color: #fff;
+}
+
+#products {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#products > div {
+    background: #fff5fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 182, 213, 0.12);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#products h3 {
+    margin: 0 8px 0 0;
+    color: #d72660;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#products button {
+    background: #ffb6d5;
+    color: #a8325a;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+#products button:hover {
+    background: #ff69b4;
+    color: #fff;
+}

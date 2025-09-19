@@ -4,6 +4,11 @@
       "id": 2,
       "name": "Iphone 12 Promax",
       "price": 3000
+    },
+    {
+      "name": "Asus",
+      "price": "2000",
+      "id": 3
     }
   ]
 }
