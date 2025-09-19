@@ -1,0 +1,20 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "bai_tap_ve_nha_CRUD",
+  "main": "index.js",
+  "scripts": {
+    "dev:front": "live-server ./src --port=5500",
+    "dev:back": "json-server -w ./db.json -p 3000",
+    "dev": "concurrently \"npm run dev:front\" \"npm run dev:back\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "concurrently": "^9.0.0"
+  }
+}
